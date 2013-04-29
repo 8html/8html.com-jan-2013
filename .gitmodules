@@ -1,0 +1,3 @@
+[submodule "uploads"]
+	path = uploads
+	url = git://github.com/caiguanhao/8html.com-uploads.git
