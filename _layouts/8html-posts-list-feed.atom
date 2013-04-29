@@ -1,0 +1,15 @@
+---
+layout: nil
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">{% capture i %}{{ page.url | remove_first:'/posts/' | split:'/' | first }}{% endcapture %}{% capture cat %}{% include categories.html %}{% endcapture %}
+	<title>{% if cat contains '未分类' %}资讯中心{% else %}{{ cat | strip_html | strip_newlines }}{% endif %} - {{ site.title }}</title>
+	<link href="{{ site.url }}{{ page.url }}" rel="self" />
+	<link href="{% capture doclink %}{{ site.url }}{% if cat contains '未分类' %}/posts/{% else %}/posts/{{ i }}/{% endif %}{% endcapture %}{{ doclink }}" />
+	<updated>{{ site.time | date_to_xmlschema }}</updated>
+	<id>{{ doclink }}</id>
+	<author>
+		<name>caiguanhao</name>
+	</author>
+	{{ content }}
+</feed>

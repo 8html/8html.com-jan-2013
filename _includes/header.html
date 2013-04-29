@@ -1,0 +1,21 @@
+	<div id="menu">
+		<ul class="menu fixed_width pos_center">
+			<li class="menu_start"></li>
+			<li class="menu_item"><a class="menu_link_logo" href="/">首页</a></li>
+			<li class="menu_sep menu_sep_active_left"></li>
+			<li class="menu_item menu_fixed"><a class="menu_link_active menu_empty"></a></li>
+			<li class="menu_sep menu_sep_active_right"></li>
+			<li class="menu_item"><a class="menu_link{% if page.url contains '/about/' %}_cur{% endif %}" href="/about/"><span class="ft1">关于我们</span></a></li>
+			<li class="menu_sep"></li>
+			<li class="menu_item"><a class="menu_link{% if page.url contains '/website/' %}_cur{% endif %}" href="/website/"><span class="ft2">网站建设</span></a></li>
+			<li class="menu_sep"></li>
+			<li class="menu_item"><a class="menu_link{% if page.url contains '/cases/' %}_cur{% endif %}" href="/cases/"><span class="ft3">成功案例</span></a></li>
+			<li class="menu_sep"></li>
+			<li class="menu_item"><a class="menu_link{% if page.url contains '/posts/' %}_cur{% endif %}" href="/posts/"><span class="ft4">资讯中心</span></a></li>
+			<li class="menu_sep"></li>
+			<li class="menu_item"><a class="menu_link{% if page.url contains '/contact/' %}_cur{% endif %}" href="/contact/"><span class="ft5">联系我们</span></a></li>
+			<li class="menu_sep"></li>
+			<li class="menu_item"><a class="menu_link" href="http://www.gdky.net/"><span class="ft6">开源网络</span></a></li>
+			<li class="menu_end"></li>
+		</ul>
+	</div>

@@ -1,0 +1,24 @@
+{% include top.html %}
+{% include header.html %}
+	<div class="pgsep clear"></div>
+	<div class="fixed_width pos_center">
+		<div class="pgls">
+			<div class="hr pghr"></div>
+			<ul class="pglsul">
+				<li><a{% if page.url == '/website/' %} class="cur"{% endif %} href="/website/">网站建设</a></li>
+				<li><a{% if page.url == '/website/domain/' %} class="cur"{% endif %} href="/website/domain/">域名注册</a></li>
+				<li><a{% if page.url == '/website/server/' %} class="cur"{% endif %} href="/website/server/">空间对比</a></li>
+			</ul>
+			<script>
+				Modernizr.cssanimations&&($(".pglsul li").addClass("pageLeftBack").css({opacity:0}).each(function(a){a=100*a+"ms";$(this).css({"-webkit-animation-delay":a,"-moz-animation-delay":a,"-o-animation-delay":a,"animation-delay":a})}),$(window).load(function(){$(".pglsul li").addClass("play")}));
+			</script>
+		</div>
+		<div class="pgrs">
+			<h1 class="pgtitle website">网站建设</h1>
+			<div class="hr"></div>
+			{{ content }}
+		</div>
+	</div>
+	<div class="pgsep clear"></div>
+{% include footer.html %}
+{% include bottom.html %}

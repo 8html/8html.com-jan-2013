@@ -1,0 +1,62 @@
+---
+layout: 8html-cases
+permalink: /cases/
+more_scripts: ["scripts/jquery.photoMosaic.min.js", "scripts/jquery.orangebox.min.js"]
+title: 成功案例
+---
+			<div class="rcontent">
+				<noscript>需要开启 JavaScript 来显示图片。</noscript>
+				<div id="cases"></div>
+			</div>
+<script>
+var PMalbum = [{
+'src': 'http://static.8html.com/cases/qnn.png',
+'thumb': 'http://static.8html.com/cases/thumbs/qnn.png',
+'caption': '全能保险柜',
+'width': 300, 'height': 294
+},{
+'src': 'http://static.8html.com/cases/8wine.png',
+'thumb': 'http://static.8html.com/cases/thumbs/8wine.png',
+'caption': '红酒室',
+'width': 300, 'height': 273
+},{
+'src': 'http://static.8html.com/cases/glassfactorys.png',
+'thumb': 'http://static.8html.com/cases/thumbs/glassfactorys.png',
+'caption': '玻璃厂英文网站',
+'width': 300, 'height': 311
+},{
+'src': 'http://static.8html.com/cases/yuex.png',
+'thumb': 'http://static.8html.com/cases/thumbs/yuex.png',
+'caption': '粤X资讯站',
+'width': 300, 'height': 320
+},{
+'src': 'http://static.8html.com/cases/krd.png',
+'thumb': 'http://static.8html.com/cases/thumbs/krd.png',
+'caption': '凯瑞达',
+'width': 300, 'height': 263
+},{
+'src': 'http://static.8html.com/cases/jetone.png',
+'thumb': 'http://static.8html.com/cases/thumbs/jetone.png',
+'caption': '捷通GPS',
+'width': 300, 'height': 209
+},{
+'src': 'http://static.8html.com/cases/shrink8.png',
+'thumb': 'http://static.8html.com/cases/thumbs/shrink8.png',
+'caption': '天键包装',
+'width': 300, 'height': 475
+}];
+$(function(){
+	$('#cases').photoMosaic({
+		input: 'json',
+		gallery: 'PMalbum',
+		columns: 3,
+		auto_columns: false,
+		width: 'auto',
+		height: 'auto',
+		padding: 20,
+		loading_transition: 'scale-up',
+		force_order: true,
+		modal_name: 'lightbox'
+	}).find('[rel^=lightbox]').orangeBox();
+});
+</script>

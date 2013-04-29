@@ -1,0 +1,34 @@
+# name of the site:
+name: 8HTML
+
+# default title:
+title: 8HTML工作室
+
+# default description:
+description: 8HTML工作室
+
+# default keywords:
+keywords: 顺德网站建设,佛山网站建设,顺德网页设计,佛山网页设计,顺德网站制作,佛山网站制作
+
+# site.url, no trailing slash:
+url: http://www.8html.com
+
+# files to exclude:
+exclude: ['README.md']
+
+# code highlight:
+pygments: true
+
+# markdown:
+markdown: rdiscount
+
+# permalink of posts:
+permalink: /posts/:year/:month/:title/
+
+# items per page"
+paginate: 20
+
+tag_page_layout: 8html-tags
+tag_page_dir: /posts/tags/
+tag_feed_layout: 8html-tags-feed
+tag_feed_dir: /posts/tags/feed/

@@ -1,0 +1,21 @@
+---
+layout: 8html-posts
+title: 网页使用base64编码显示图片
+author: caiguanhao
+category: tech
+tags: Images
+description: 在网页合理地使用base64编码显示小图片可以减少HTTP请求次数，从而加快页面载入，但有人质疑此方法不能更好利用缓存。
+---
+合理地在网页使用base64编码显示小图片可以减少HTTP请求次数，从而加快页面载入，但也有人质疑这种方法能不能真正加快载入，他们认为这种方法不能更好利用缓存，另外解码时也要消耗系统资源。编码出来的字符串是一个URI，示例格式：``<img src="data:image/png;base64, ... " />``。IE6、IE7和更古老的浏览器都不支持这种URI，不过也有方法去兼容，如用MHTML。
+
+示例：
+
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAALiMAAC4jAXilP3YAAAJVSURBVDiNfdE/SNRxGMfx9/P9/b3fmZqghbOjp0F/yYYGNymSqEAdUoecT03MrcaaPCqkGmqxoYQKcSmwIaNAsOGuzRCsoBuq88/5+93d72mopOiuz/TwDC+eP7aqAhC4brPjOCddzzuOagSggPAzCoiIU4qid982N+//amP/LizLDPvJYNxPJptQqMQxO8UisSqe52E7NiJCWNz5CvwLqIgP4ogIUamE57n09JwlSAQsvlxkff0jyWQAguGP7AIiRo1lIWJobGjg4ewsqfZ2tra3UVUuDg7y5u1bLGNRAxCMZYiiiPGxUfbt38/hY0fJ5/PM3J4hnU5z7sJ5bKsGgAjGWCBCa2sra2trrK5+wFgWufc5uru7cWxn96j/ALZt4zgOru/z5OlT7t25y8jIJZaXlxkeGmI6k8F1XTSOqwOWMUhcQVRZWFjg8sQEN65fB2A6k+HmrVs0NjZSKZeqAzthiBaU5kRA094mBvr7WVlZQYETXV3sa2khjCK+FzaqA47nUVdfT6lS5srkJEEQ0HP6FBorc48ece3aVUbHxtnT0PCfFYxQLlfoSHXw/MULtra2MGJ4Nj/PQF8fioJIdUCMQRXKlRKfP3/i0MGDCEIYhRzo7ORLPk8URbXfKAKqMY7tMD2dYe7xY14vvaK4XaStrY3B4SEANNbqACAaK5Zjkc1lOdPbS39fH34iweTUFEtLS9TV1VEq1fhCkAjK5UolDsMQ27bJ5nKkx0ZRBc9z8X2fKAqJ479H2AVSqY4HhULhy+bmxhERiagSVXUSiUT2z94PlF3pC33HMkoAAAAASUVORK5CYII=" alt="8">
+
+可以在终端用base64命令直接编码
+
+``$ base64 8.png``
+
+相反地，将字符串解码成为图片文件
+
+``echo " 字符串 " | base64 -d > new.png``

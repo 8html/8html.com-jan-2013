@@ -1,0 +1,114 @@
+---
+layout: 8html-default
+permalink: index.html
+fulltitle: 8HTML-佛山顺德网站建设制作与网页设计
+---
+	<div class="fixed_width pos_center">
+		<div class="panel">
+			<div id="text1" class="text">强大的技术支援</div>
+			<div id="text2" class="text">应用最新的网页技术，实现客户需要的各种功能和效果。</div>
+			<div id="pic1"></div>
+		</div>
+		<div class="panel_sep"></div>
+		<div class="panel">
+			<div id="text3" class="text">最快的网页</div>
+			<div id="text4" class="text">用CMS生成静态网页，配上高效软件和服务器，从此零等待。</div>
+			<div id="pic2"></div>
+		</div>
+		<div class="panel_sep"></div>
+		<div class="panel">
+			<div id="text5" class="text">适合SEO的代码</div>
+			<div id="text6" class="text">整洁有序的代码使网站更快更好被搜索引擎收录，排名也更高。</div>
+			<div id="pic3"></div>
+		</div>
+		<div class="panel_sep"></div>
+		<div class="panel">
+			<div id="text7" class="text">专业服务平民价格</div>
+			<div id="text8" class="text">从版面设计到网站备案，花费最少时间和金钱就可以做出一个体面的网站。</div>
+			<div id="pic4"></div>
+		</div>
+	</div>
+	<script>
+	var ele=['#text1','#text2','#pic1','#text3','#text4','#pic2','#text5','#text6','#pic3','#text7','#text8','#pic4'];
+	$.each([{top: -25}, {left: -125}, {top: 205}, {top: -25}, {top: 215}, {left: -240}, {top: -25}, {left: -140}, {top: 215}, {top: -48}, {left: 235}, {left: -160}], function(a,b){
+		$(ele[a]).css(b);
+	});
+	if (Modernizr.csstransforms3d) {
+		$(function(){
+			var vals=['0, 37px, 0','137px, 0, 0','0, -144px, 0','0, 37px, 0','0, -60px, 0','240px, 0, 0','0, 37px, 0','155px, 0, 0','0, -142px, 0','0, 60px, 0','-95px, 0, 0','160px, 0, 0'];
+			$.each(ele, function(a,b){
+				var c={};
+				$.each(['-webkit-','-moz-','-ms-','-o-',''], function(d,e){c[e+'transform']='translate3d('+vals[a]+')';});
+				$(b).addClass('trans').css(c);
+			});
+		});
+	}
+	</script>
+	<div class="clear"></div>
+	<div class="fixed_width pos_center">
+		<div id="webarea">
+			<div class="postlist">
+				<h3>资讯中心</h3>
+				<ul>
+{% for post in site.posts limit:8 offset:0 %}
+					<li><a href="{{ post.url }}">{{ post.title }}</a></li>
+{% endfor %}
+				</ul>
+			</div>
+		</div>
+		<div id="bigsquare" class="panel">
+			<h3>网站建设</h3>
+			<div class="bs" id="bs1">
+				高效、安全、稳定的建站方案，适用于企业产品展示站或个人博客站
+			</div>
+			<div class="bs" id="bs2">
+				高效：服务器只需处理静态文件，大大减少传输时间、增加最大同时访问人数。
+				安全：服务器上没有后台文件，全部为非执行文件，避免安全隐患。
+				稳定：使用版本控制软件，可以在不同电脑进行备份。
+			</div>
+			<div class="bs" id="bs3">
+				使用 Jekyll 快速建站
+				使用 Liquid 模板语言快速建立一个常规网站。如果功能不够也可以另外用 Ruby 写插件辅助。
+			</div>
+			<div class="bs" id="bs3p"></div>
+			<div class="bs" id="bs4">
+				瞬间完成建站命令
+				在本地执行建站命令，瞬间生成所有静态文件。当然也可以在服务器上安装 Jekyll 软件直接生成。
+			</div>
+			<div class="bs" id="bs4p"></div>
+			<div class="bs" id="bs5">
+				获得全站静态文件
+				网站文件一目了然，避免出现重要文件被抓取。经过代码处理，网站也可以在本地直接浏览。
+			</div>
+			<div class="bs" id="bs5p"></div>
+			<div class="bs" id="bs6">
+				通过版本控制软件 Git 管理
+				每次更新网站，提交更改，只需上传更改过的部分，毋须全站上传。版本控制记录每次更改历史，你可以通过命令恢复到之前任何一个版本。
+			</div>
+			<div class="bs" id="bs6p"></div>
+			<div class="bs" id="bs7">
+				自动发布
+				服务器配置 Git 库，经过第一次设置后，只要以后每次在本地电脑完成提交更改，服务器就会自动更新。
+			</div>
+			<div class="bs" id="bs7p"></div>
+		</div>
+	</div>
+	<script>
+	if (Modernizr.csstransforms3d) {
+		var ele2=['#bs1', '#bs2', '#bs3', '#bs3p', '#bs4', '#bs4p', '#bs5', '#bs5p', '#bs6', '#bs6p', '#bs7', '#bs7p'];
+		$.each([{top: -48}, {left: 745}, {left: -320}, {left: -320}, {left: 740}, {left: 740}, {left: -320}, {left: -320}, {left: 740}, {left: 740}, {left: -320}, {left: -320}], function(a,b){
+			$(ele2[a]).css(b);
+		});
+		$(function(){
+			var vals=['0, 63px, 0', '-370px, 0, 0', '332px, 0, 0', '332px, 0, 0', '-390px, 0, 0', '-390px, 0, 0', '332px, 0, 0', '332px, 0, 0', '-390px, 0, 0', '-390px, 0, 0', '332px, 0, 0', '346px, 0, 0'];
+			$.each(ele2, function(a,b){
+				var c={};
+				$.each(['-webkit-','-moz-','-ms-','-o-',''], function(d,e){
+					c[e+'transition-delay']=(100*a)+'ms';
+					c[e+'transform']='translate3d('+vals[a]+')';
+				});
+				$(b).addClass('trans2').css(c);
+			});
+		});
+	}
+	</script>

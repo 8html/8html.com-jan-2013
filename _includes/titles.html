@@ -1,0 +1,19 @@
+{% if page.fulltitle %}
+{{ page.fulltitle }}
+{% else %}
+{% case page.layout %}
+{% when '8html-tags' %}
+含“{{ page.tag }}”标签的文章
+{% when '8html-posts-list' %}
+{% capture i %}{{ page.url | remove_first:'/posts/' | split:'/' | first }}{% endcapture %}
+{% capture category_text %}{% include categories.html %}{% endcapture %}
+{% if category_text contains '未分类' %}
+资讯中心
+{% else %}
+分类“{{ category_text | strip_html }}”下的文章
+{% endif %}
+{% else %}
+{{ page.title }}
+{% endcase %}
+ - {{ site.title }}
+{% endif %}

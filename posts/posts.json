@@ -1,0 +1,7 @@
+---
+layout: nil
+---
+[
+["标题","描述","地址"]{% for post in site.posts %}
+,[{{ post.title | json }},{{ post.description | json }},{{ post.url | remove_first:'/posts/' | json }}]{% endfor %}
+]

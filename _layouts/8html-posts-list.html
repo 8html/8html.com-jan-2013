@@ -1,0 +1,32 @@
+---
+atom: ["catfeed"]
+more_scripts: ["scripts/livesearch.js"]
+---
+{% include top.html %}
+{% include header.html %}
+	<div class="pgsep clear"></div>
+	<div class="fixed_width pos_center">
+		<div class="pgls">
+			<div class="hr pghr"></div>
+			<ul class="pglsul">
+				<li><a href="/posts/">资讯中心</a></li>{% for i in (1..10) %}{% capture cat %}{% include categories.html %}{% endcapture %}{% if cat contains 'href=' %}
+				<li>{{ cat | strip_newlines }}</li>{% endif %}{% endfor %}
+			</ul>
+			<input id="suggest" placeholder="快速查找文章..." />
+			<div id="suggeststatus"></div>
+			<script>
+				$(".pglsul a").each(function(){0<=location.pathname.indexOf($(this).attr("href"))&&($(".pglsul a").removeClass("cur"),$(this).addClass("cur"))});
+				Modernizr.cssanimations&&($(".pglsul li, #suggest").addClass("pageLeftBack").css({opacity:0}).each(function(a){a=100*a+"ms";$(this).css({"-webkit-animation-delay":a,"-moz-animation-delay":a,"-o-animation-delay":a,"animation-delay":a})}),$(window).load(function(){$(".pglsul li, #suggest").addClass("play")}));
+			</script>
+		</div>
+		<div class="pgrs">
+			<a class="atom" href="{{ page.url | replace:'index.html','' }}feed.atom">ATOM FEED</a>
+			<h1 class="pgtitle posts">资讯中心</h1>
+			<div class="hr"></div>
+			<div id="suggests" class="hidden"></div>
+			{{ content }}
+		</div>
+	</div>
+	<div class="pgsep clear"></div>
+{% include footer.html %}
+{% include bottom.html %}

@@ -1,0 +1,5 @@
+---
+layout: 8html-posts-list-feed
+---
+{% for post in site.categories.tech limit:20 offset:0 %}
+{% include feed-item.html %}{% endfor %}

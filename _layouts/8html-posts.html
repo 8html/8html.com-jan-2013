@@ -1,0 +1,43 @@
+---
+atom: ["tagfeed","catfeed","other"]
+more_scripts: ["scripts/livesearch.js"]
+---
+{% include top.html %}
+{% include header.html %}{% capture categories %}{% include categories.html %}{% endcapture %}
+	<div class="pgsep clear"></div>
+	<div class="fixed_width pos_center">
+		<div class="pgls">
+			<div class="hr pghr"></div>
+			<ul class="pglsul">
+				<li><a href="/posts/">资讯中心</a></li>{% for i in (1..10) %}{% capture cat %}{% include categories.html %}{% endcapture %}{% if cat contains 'href=' %}
+				<li>{{ cat | strip_newlines }}</li>{% endif %}{% endfor %}
+			</ul>
+			<input id="suggest" placeholder="快速查找文章..." />
+			<div id="suggeststatus"></div>
+			<script>
+				var catlink = '{{ categories | strip_newlines }}';
+				$(".pglsul a").each(function(){-1!==catlink.indexOf($(this).attr("href"))&&($(".pglsul a").removeClass("cur"),$(this).addClass("cur"))});
+				Modernizr.cssanimations&&($(".pglsul li, #suggest").addClass("pageLeftBack").css({opacity:0}).each(function(a){a=100*a+"ms";$(this).css({"-webkit-animation-delay":a,"-moz-animation-delay":a,"-o-animation-delay":a,"animation-delay":a})}),$(window).load(function(){$(".pglsul li, #suggest").addClass("play")}));
+			</script>
+		</div>
+		<div class="pgrs">
+			<h1 class="pgtitle posts">资讯中心</h1>
+			<div class="hr"></div>
+			<div id="suggests" class="hidden"></div>
+			<div class="content lscontent">
+				<h1 class="title">{{ page.title }}</h1>
+				<h4 class="info">
+					<em class="author">作者：{% if page.author %}{{ page.author }}{% else %}未指定{% endif %}</em>
+					<em class="date">发表日期：{{ page.date | date:'%Y-%m-%d' }}</em>
+					<em class="category">分类：{{ categories | strip_newlines }}</em>
+					<em class="tags">{% capture post_tags %}{{ page | tags }}{% endcapture %}{% if post_tags != '' %}标签：{{ post_tags }}{% else %}无标签{% endif %}</em>
+				</h4>
+				{{ content }}
+			</div>
+			{% if page.next %}<div class="pglink lscontent">►新文章：<a href="{{ page.next.url }}">{{ page.next.title }}</a></div>{% endif %}
+			{% if page.previous %}<div class="pglink lscontent">◄旧文章：<a href="{{ page.previous.url }}">{{ page.previous.title }}</a></div>{% endif %}
+		</div>
+	</div>
+	<div class="pgsep clear"></div>
+{% include footer.html %}
+{% include bottom.html %}

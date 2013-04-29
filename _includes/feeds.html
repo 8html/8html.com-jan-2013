@@ -1,0 +1,34 @@
+{% for item in page.atom %}
+
+{% case item %}
+
+{% when 'tagfeed' %}
+{% if page.tag %}
+{% capture atom_url %}{{ relative }}{{ site.tag_feed_dir }}{{ page.tag }}.atom{% endcapture %}
+{% capture atom_title %}ATOM - 标签“{{ page.tag }}”{% endcapture %}
+<link href="{{ atom_url | replace:'//','/' }}" rel="alternate" title="{{ atom_title }}" type="application/atom+xml" />
+{% else %}
+{% for pt in page.tags %}
+{% capture atom_url %}{{ relative }}{{ site.tag_feed_dir }}{{ pt }}.atom{% endcapture %}
+{% capture atom_title %}ATOM - 标签“{{ pt }}”{% endcapture %}
+<link href="{{ atom_url | replace:'//','/' }}" rel="alternate" title="{{ atom_title }}" type="application/atom+xml" />
+{% endfor %}
+{% endif %}
+
+{% when 'catfeed' %}
+{% if page.layout == '8html-posts' %}
+{% capture atom_url %}{{ relative }}posts/{{ page.category }}/feed.atom{% endcapture %}
+{% else %}
+{% capture atom_url %}{{ relative }}{{ page.url | replace:'index.html','feed.atom' }}{% endcapture %}
+{% endif %}
+{% capture cat %}{% include categories.html %}{% endcapture %}
+{% capture atom_title %}ATOM - 分类“{{ cat | strip_html | strip_newlines }}”{% endcapture %}
+<link href="{{ atom_url | replace:'//','/' }}" rel="alternate" title="{{ atom_title | replace:'分类“未分类”','资讯中心' }}" type="application/atom+xml" />
+
+{% else %}
+<link href="{{ relative }}posts/feed.atom" rel="alternate" title="ATOM - 资讯中心" type="application/atom+xml" />
+
+{% endcase %}
+
+
+{% endfor %}

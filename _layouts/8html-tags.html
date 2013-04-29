@@ -1,0 +1,54 @@
+---
+atom: ["tagfeed"]
+more_scripts: ["scripts/livesearch.js"]
+---
+{% include top.html %}
+{% include header.html %}
+	<div class="pgsep clear"></div>
+	<div class="fixed_width pos_center">
+		<div class="pgls">
+			<div class="hr pghr"></div>
+			<ul class="pglsul">
+				<li><a href="/posts/">资讯中心</a></li>{% for i in (1..10) %}{% capture cat %}{% include categories.html %}{% endcapture %}{% if cat contains 'href=' %}
+				<li>{{ cat | strip_newlines }}</li>{% endif %}{% endfor %}
+			</ul>
+			<input id="suggest" placeholder="快速查找文章..." />
+			<div id="suggeststatus"></div>
+			<script>
+				$(".pglsul a").each(function(){0==location.pathname.indexOf($(this).attr("href"))&&($(".pglsul a").removeClass("cur"),$(this).addClass("cur"))});
+				Modernizr.cssanimations&&($(".pglsul li, #suggest").addClass("pageLeftBack").css({opacity:0}).each(function(a){a=100*a+"ms";$(this).css({"-webkit-animation-delay":a,"-moz-animation-delay":a,"-o-animation-delay":a,"animation-delay":a})}),$(window).load(function(){$(".pglsul li, #suggest").addClass("play")}));
+			</script>
+		</div>
+		<div class="pgrs">
+			<a class="atom" href="{{ site.tag_feed_dir }}{{ page.tag }}.atom">ATOM FEED</a>
+			<h1 class="pgtitle posts">资讯中心</h1>
+			<div class="hr"></div>
+			<div id="suggests" class="hidden"></div>
+			<div id="tag-cloud" class="lscontent">
+			{{ site | tag_cloud | replace:'###CONTAINS###','包含' | replace:'###POSTS###','篇文章' }}
+			</div>
+			<h3 class="tagtitle lscontent">
+				包含“{{ page.tag }}”标签的文章有{{ page.posts | size }}篇：
+			</h3>
+			<div class="tagpostlist lscontent">
+				<ul>
+{% for post in page.posts %}{% capture cat %}{% include categories.html %}{% endcapture %}
+					<li>
+						<div class="nll">
+							<a href="{{ post.url }}" class="title">{{ post.title }}</a>
+						</div>
+						<div class="nlr">
+							<em class="tags" title="标签">{% if post_tags != '' %}{{ post | tags }}{% else %}无标签{% endif %}</em>
+							<em class="category" title="分类">{{ cat | strip_newlines }}</em>
+							<em class="author" title="作者">{% if post.author %}{{ post.author }}{% else %}未指定{% endif %}</em>
+							<em class="date" title="发表日期：{{ post.date | date:'%Y-%m-%d' }}">{{ post.date | date:'%b %d' }}</em>
+						</div>
+					</li>
+{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="pgsep clear"></div>
+{% include footer.html %}
+{% include bottom.html %}

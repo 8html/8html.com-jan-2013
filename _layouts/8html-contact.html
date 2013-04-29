@@ -1,0 +1,23 @@
+{% include top.html %}
+{% include header.html %}
+	<div class="pgsep clear"></div>
+	<div class="fixed_width pos_center">
+		<div class="pgls">
+			<div class="hr pghr"></div>
+			<ul class="pglsul">
+				<li><a{% if page.url == '/contact/' %} class="cur"{% endif %} href="/contact/">联系我们</a></li>
+				<li><a{% if page.url == '/contact/hiring/' %} class="cur"{% endif %} href="/contact/hiring/">人才招聘</a></li>
+			</ul>
+			<script>
+				Modernizr.cssanimations&&($(".pglsul li").addClass("pageLeftBack").css({opacity:0}).each(function(a){a=100*a+"ms";$(this).css({"-webkit-animation-delay":a,"-moz-animation-delay":a,"-o-animation-delay":a,"animation-delay":a})}),$(window).load(function(){$(".pglsul li").addClass("play")}));
+			</script>
+		</div>
+		<div class="pgrs">
+			<h1 class="pgtitle contact">联系我们</h1>
+			<div class="hr"></div>
+			{{ content }}
+		</div>
+	</div>
+	<div class="pgsep clear"></div>
+{% include footer.html %}
+{% include bottom.html %}

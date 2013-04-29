@@ -1,0 +1,23 @@
+{% include top.html %}
+{% include header.html %}
+	<div class="pgsep clear"></div>
+	<div class="fixed_width pos_center">
+		<div class="pgls">
+			<div class="hr pghr"></div>
+			<ul class="pglsul">
+				<li><a{% if page.url == '/about/' %} class="cur"{% endif %} href="/about/">关于我们</a></li>
+				<li><a{% if page.url == '/about/workplace/' %} class="cur"{% endif %} href="/about/workplace/">工作环境</a></li>
+			</ul>
+			<script>
+				Modernizr.cssanimations&&($(".pglsul li").addClass("pageLeftBack").css({opacity:0}).each(function(a){a=100*a+"ms";$(this).css({"-webkit-animation-delay":a,"-moz-animation-delay":a,"-o-animation-delay":a,"animation-delay":a})}),$(window).load(function(){$(".pglsul li").addClass("play")}));
+			</script>
+		</div>
+		<div class="pgrs">
+			<h1 class="pgtitle about">关于我们</h1>
+			<div class="hr"></div>
+			{{ content }}
+		</div>
+	</div>
+	<div class="pgsep clear"></div>
+{% include footer.html %}
+{% include bottom.html %}

@@ -1,0 +1,51 @@
+{% capture prefix %}{{ page.url | replace:'/index.html','' | split:'/page/' | first }}/{% endcapture %}
+			<div id="newslist" class="newslist lscontent">
+				<ul>
+{% for post in paginator.posts %}{% capture post_tags %}{{ post | tags }}{% endcapture %}{% capture cat %}{% include categories.html %}{% endcapture %}
+					<li>
+						<div class="nll">
+							<a href="{{ post.url }}" class="title">{{ post.title }}</a>
+						</div>
+						<div class="nlr">
+							<em class="tags" title="标签">{% if post_tags != '' %}{{ post | tags }}{% else %}无标签{% endif %}</em>
+							<em class="category" title="分类">{{ cat | strip_newlines }}</em>
+							<em class="author" title="作者">{% if post.author %}{{ post.author }}{% else %}未指定{% endif %}</em>
+							<em class="date" title="发表日期：{{ post.date | date:'%Y-%m-%d' }}">{{ post.date | date:'%b %d' }}</em>
+						</div>
+						<div class="clear">
+							<small>{{ post.description }}</small>
+						</div>
+					</li>
+{% endfor %}
+				</ul>
+			</div>
+			<div id="newslistpaging" class="newslistpaging lscontent">
+				<ul>
+			{% if paginator.previous_page %}
+				{% if paginator.previous_page == 1 %}
+					<li><a href="{{ prefix }}">上一页</a></li>
+				{% else %}
+					<li><a href="{{ prefix }}page/{{paginator.previous_page}}/">上一页</a></li>
+				{% endif %}
+			{% else %}
+					<li><em>上一页</em></li>
+			{% endif %}
+			{% if paginator.page == 1 %}
+					<li><em>1</em></li>
+			{% else %}
+					<li><a href="{{ prefix }}">1</a></li>
+			{% endif %}
+			{% for count in (2..paginator.total_pages) %}
+				{% if count == paginator.page %}
+					<li><em>{{count}}</em></li>
+				{% else %}
+					<li><a href="{{ prefix }}page/{{count}}/">{{count}}</a></li>
+				{% endif %}
+			{% endfor %}
+			{% if paginator.next_page %}
+					<li><a href="{{ prefix }}page/{{paginator.next_page}}/">下一页</a></li>
+			{% else %}
+					<li><em>下一页</em></li>
+			{% endif %}
+				</ul>
+			</div>

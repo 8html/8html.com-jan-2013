@@ -1,0 +1,86 @@
+---
+layout: 8html-website
+permalink: /website/
+title: 网站建设
+---
+			<div class="loading"></div>
+			<div class="rcontent">
+				<ul class="steps">
+					<li class="pageTop">
+						<div class="step s1"></div>
+						<div class="num n1"></div>
+						<div class="stext">
+							<strong>了解客户需求</strong>
+							通过网络或者面谈等途径了解客户的需求，好的开始是成功的一半。
+						</div>
+					</li>
+					<li class="pageTop">
+						<div class="step s2"></div>
+						<div class="num n2"></div>
+						<div class="stext">
+							<strong>预计报价及时间</strong>
+							根据客户需求制成报价单，预计建站完成的时间并告知客户。
+						</div>
+					</li>
+					<li class="pageTop">
+						<div class="step s3"></div>
+						<div class="num n3"></div>
+						<div class="stext">
+							<strong>签署合同</strong>
+							双方同意网站建设项目后，共同签署一式两份的合同书。
+						</div>
+					</li>
+					<li class="pageTop">
+						<div class="step s4"></div>
+						<div class="num n4"></div>
+						<div class="stext">
+							<strong>网站设计效果</strong>
+							根据要求制作网站设计效果图，交由客户审阅后再确定。
+						</div>
+					</li>
+					<li class="pageTop">
+						<div class="step s5"></div>
+						<div class="num n5"></div>
+						<div class="stext">
+							<strong>网站建设</strong>
+							网页设计师根据设计要求开始建造网站，实现网站各种功能。
+						</div>
+					</li>
+					<li class="pageTop">
+						<div class="step s6"></div>
+						<div class="num n6"></div>
+						<div class="stext">
+							<strong>客户验收</strong>
+							网站完成后，客户进行验收，确认后，网站就可以上线。
+						</div>
+					</li>
+					<li class="pageTop">
+						<div class="step s7"></div>
+						<div class="num n7"></div>
+						<div class="stext">
+							<strong>网站日常维护</strong>
+							保障网站的正常访问，并定期对网站进行数据备份。
+						</div>
+					</li>
+				</ul>
+			</div>
+			<script>
+			if (Modernizr.cssanimations) {
+				$('.loading').text('载入中...');
+				$(".pageTop").css({opacity: 0}).each(function(i){
+					var val=i*200+'ms';
+					$(this).css({
+					'-webkit-animation-delay':val,
+					'-moz-animation-delay':val,
+					'-o-animation-delay':val,
+					'animation-delay':val
+					});
+				});
+				$(window).load(function(){
+					$(".pageTop").addClass("play");
+					$('.loading').text('').addClass('hidden');
+				});
+			} else {
+				$('.loading').remove();
+			}
+			</script>

@@ -1,0 +1,38 @@
+---
+layout: 8html-contact
+permalink: /contact/
+title: 联系我们
+---
+			<div class="rcontent">
+				<div class="contactpage">
+					<div class="personinfo">
+						<h3>黄子钊先生</h3>
+						<em>业务咨询和客户服务</em>
+					</div>
+					<div class="contactmethod">
+						<div class="hzzphone">电话</div>
+						<div class="hzzemail">电邮</div>
+						<div>QQ：416942291 <a class="reset" href="http://wpa.qq.com/msgrd?v=3&amp;uin=416942291&amp;site=qq&amp;menu=yes" target="_blank"><img title="请咨询我" alt="请咨询我" src="http://wpa.qq.com/pa?p=2:416942291:41" border="0"></a></div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div id="mapcontainer">					
+					<div id="allmap" style="width: 770px; height: 500px; margin: 20px auto;">	
+					    <div id="map" style="height:100%;"></div>
+					</div>
+					<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.4"></script>
+					<script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.4/src/SearchInfoWindow_min.js"></script>
+					<link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.4/src/SearchInfoWindow_min.css" />
+					<script type="text/javascript">
+					var map=new BMap.Map("map"),poi=new BMap.Point(113.288215,22.76669);map.centerAndZoom(poi,17);map.enableScrollWheelZoom();
+					var content='<div style="margin:0;line-height:20px;padding:2px;">地址：广东顺德容桂华南大街21号</div>',searchInfoWindow=new BMapLib.SearchInfoWindow(map,content,{title:"开源网络",width:200,height:40,panel:"panel",enableAutoPan:!0,searchTypes:[BMAPLIB_TAB_SEARCH,BMAPLIB_TAB_TO_HERE,BMAPLIB_TAB_FROM_HERE]}),marker=new BMap.Marker(poi);marker.enableDragging();marker.addEventListener("click",function(a){searchInfoWindow.open(marker)});
+					map.addOverlay(marker);searchInfoWindow.open(marker);
+					</script>
+					<a href="javascript:;" id="showgmaps">Sorry, but I prefer Google Maps.</a>
+				</div>
+				<script>
+					$('#showgmaps').click(function(){
+						$('#mapcontainer').html('<div style="margin: 20px auto;"><iframe id="cmap" width="770" height="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://ditu.google.cn/maps?q=%E5%B9%BF%E4%B8%9C%E9%A1%BA%E5%BE%B7%E5%AE%B9%E6%A1%82%E5%8D%8E%E5%8D%97%E5%A4%A7%E8%A1%9721%E5%8F%B7(8HTML%E5%B7%A5%E4%BD%9C%E5%AE%A4%EF%BC%88%E5%BC%80%E6%BA%90%E7%BD%91%E7%BB%9C%EF%BC%89)%4022.760440,+113.281848&amp;hl=zh-CN&amp;sll=22.760440,+113.281848&amp;sspn=0.007795,0.008669&amp;brcurrent=3,0x34024ed09f70f8c9:0xc00e0e23523ac264,0,0x340248b2ba983d31:0x726fbd60197a4f76%3B5,0,0&amp;t=m&amp;ie=UTF8&amp;ll=22.760440,+113.281848&amp;spn=0.027698,0.036478&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe><br /><small><a href="http://ditu.google.cn/maps?q=%E5%B9%BF%E4%B8%9C%E9%A1%BA%E5%BE%B7%E5%AE%B9%E6%A1%82%E5%8D%8E%E5%8D%97%E5%A4%A7%E8%A1%9721%E5%8F%B7(8HTML%E5%B7%A5%E4%BD%9C%E5%AE%A4%EF%BC%88%E5%BC%80%E6%BA%90%E7%BD%91%E7%BB%9C%EF%BC%89)%4022.760440,+113.281848&amp;hl=zh-CN&amp;sll=22.760440,+113.281848&amp;sspn=0.007795,0.008669&amp;brcurrent=3,0x34024ed09f70f8c9:0xc00e0e23523ac264,0,0x340248b2ba983d31:0x726fbd60197a4f76%3B5,0,0&amp;t=m&amp;ie=UTF8&amp;ll=22.760440,+113.281848&amp;spn=0.027698,0.036478&amp;z=14&amp;iwloc=A&amp;source=embed">查看大图</a></small></div>');
+					});
+				</script>
+			</div>

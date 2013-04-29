@@ -1,0 +1,11 @@
+{% if page.category %}{% capture the_category %}{{ page.category }}{% endcapture %}{% endif %}
+{% if post.category %}{% capture the_category %}{{ post.category }}{% endcapture %}{% endif %}
+{% if i %}{% capture the_category %}{{ i }}{% endcapture %}{% endif %}
+{% case the_category %}
+{% when '1' or 'tech' %}
+<a href="/posts/tech/">技术文章</a>
+{% when '2' or 'company' %}
+<a href="/posts/company/">公司新闻</a>
+{% else %}
+未分类
+{% endcase %}

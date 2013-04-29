@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--
+Web Design by caiguanhao at 8HTML <caiguanhao@gmail.com>.
+Copyright (C) 2013 caiguanhao, 8HTML.com, GDKY.net and others.
+Powered by Jekyll, the blog-aware, static site generator in Ruby.{% if page.url == 'index.html' %}
+Generated on {{ site.time }}.{% endif %}
+    8                              8               8       8    
+    8  888888888  88888888888888    8    8HTML      8      8    
+   8   8       8       8            8    8   8      8      8    
+   8 8 8 8   8 8      8          8888888 8   8   8888888   8    
+  8  8 8  8 8  8    8888888888           8   8             8    
+ 8888  888888888    8        8    8HTML 8     88  8HTML    8    
+    8  8  8    8    8        8         8               888888888
+   8   8   8   8    8888888888    8HTML 8888888   8HTML    8    
+  8  8 888888888    8        8           8    8            8    
+ 8HTML 8 8     8    8888888888    8HTML  8    8   8HTML    8    
+     8 8 8     8    8        8    8   8   8  8    8   8    8    
+       8 8     8    8        8    8   8   8 8     8   8    8    
+ 8 8 8 8 8HTML 8    8888888888    8   8    8      8   8    8    
+ 8 8 8 8       8     8      8     8HTML   8 8     8HTML    8    
+ 8     8     8 8    8        8    8   8  8   8    8   8    8    
+       8      8    8          8        88     88           8    
+-->
+<html class="no-js">
+{% capture lvl %}{{ page.url | append:'index.html' | split:'/' | size }}{% endcapture %}{% capture relative %}{% for i in (3..lvl) %}../{% endfor %}{% endcapture %}{%capture page_title %}{% include titles.html %}{% endcapture %}{%capture page_feeds %}{% include feeds.html %}{% endcapture %}
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+<meta name="keywords" content="{% if page.keywords %}{{ page.keywords }}{% else %}{{ site.keywords }}{% endif %}{% if page.tags %},{{ page.tags | join:',' }}{% endif %}" />
+<meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}" />
+<meta name="viewport" content="width=1024" />
+<meta property="og:sitename" content="{{ site.name }}" />
+<meta property="og:title" content="{{ page_title | strip_newlines }}" />
+<meta property="og:image" content="{% if page.image %}{{ page.image }}{% else %}{{ site.url }}/images/icons/8HTML_sq.png{% endif %}" />
+<meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}" />
+<meta property="og:type" content="{% if page.category %}posts.{{ page.category }}{% else %}page{% endif %}" />
+<meta property="og:url" content="{{ site.url }}{{ page.url | replace:'index.html','' }}" />{% if page.date %}
+<meta name="DC.date" content="{{ page.date | date:'%Y-%m-%d' }}" />{% endif %}
+<title>{{ page_title | strip_newlines }}</title>
+<link rel="canonical" href="{{ site.url }}{{ page.url | replace:'index.html','' }}" />
+<link href="{{ relative }}css/main.css" rel="stylesheet" />
+<link href="{{ relative }}css/animation.css" rel="stylesheet" />{% for item in page.more_css %}
+<link href="{{ relative }}{{ item }}" rel="stylesheet" />{% endfor %}
+<link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-touch-icon-114.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-touch-icon-114.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-touch-icon-144.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-touch-icon-144.png" />
+<link rel="shortcut icon" href="{{ relative }}favicon.ico" type="image/x-icon" />{{ page_feeds | fixnewline }}
+<script src="{{ relative }}scripts/jquery.min.js"></script>
+<script src="{{ relative }}scripts/header.min.js"></script>{% for item in page.more_scripts %}
+<script src="{{ relative }}{{ item }}"></script>{% endfor %}
+</head>
+
+<body>
+
+<div id="wrapper">

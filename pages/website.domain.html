@@ -1,0 +1,51 @@
+---
+layout: 8html-website
+permalink: /website/domain/
+title: 域名注册 - 网站建设
+more_scripts: ["scripts/jquery.orangebox.min.js"]
+---
+			<div class="rcontent">
+				<div class="chkdomain bounceIn">
+					<div class="chkdinp">
+						<input id="domain" />
+						<input type="button" id="chkdomain" value="查询域名" />
+						<a id="selall" href="javascript:;">全　选</a>
+					</div>
+					<input type="checkbox" id="d1" checked /><label for="d1">.com</label>
+					<input type="checkbox" id="d2" checked /><label for="d2">.net</label>
+					<input type="checkbox" id="d3" checked /><label for="d3">.org</label>
+					<input type="checkbox" id="d4" checked /><label for="d4">.cn</label>
+					<input type="checkbox" id="d5" /><label for="d5">.com.cn</label>
+					<input type="checkbox" id="d6" /><label for="d6">.hk</label>
+					<input type="checkbox" id="d7" /><label for="d7">.info</label>
+					<input type="checkbox" id="d8" /><label for="d8">.cc</label>
+					<input type="checkbox" id="d9" /><label for="d9">.so</label>
+					<input type="checkbox" id="d10" /><label for="d10">.me</label>
+					<div id="domainchkresults"></div>
+					<div class="clear"></div>
+				</div>
+				<div class="domaindesc">
+					<h3>如何选择域名？</h3>
+					<ul>
+						<li>.com是首选域，如果.com结尾的域名已被注册，可以考虑.net或者.org。</li>
+						<li>.cn域由CNNIC管理，分个人和企业类别，都需要符合相关规定才可注册。</li>
+						<li>其他两个字符的域（如.it）通常都是各国的国家域，价格和注册方法都不同。</li>
+						<li>域名要容易被人记住，就要越短越好，或者是有意义的，如用拼音作为域名。</li>
+						<li>域名注册最好去大的网络公司注册，中国国内很多小型网络公司无法更改域名的NS等记录。</li>
+					</ul>
+					<h3>注册域名</h3>
+					<ul>
+						<li>在8HTML注册 .com/.net/.org/.cn 域名只需99元/年，详情请咨询<a href="/contact/">业务电话</a>。<br />（.cn域名以个人名义注册需要身份证正反面彩色扫描版，而以企业名义注册则需要法人代表身份证正反面彩色扫描版、企业工商营业执照彩色扫描版、企业组织机构代码证彩色扫描版。）</li>
+						<li>需要注册 .hk/.it/.cc/.info 等域名，请咨询<a href="/contact/">业务电话</a>。</li>
+					</ul>
+				</div>
+			</div>
+			<script>
+			if (Modernizr.cssanimations) {
+				$(".bounceIn").css({opacity: 0});
+				$(window).load(function(){
+					$(".bounceIn").addClass("play");
+				});
+			}
+			</script>
+			<script src="{% capture lvl %}{{ page.url | append:'index.html' | split:'/' | size }}{% endcapture %}{% capture relative %}{% for i in (3..lvl) %}../{% endfor %}{% endcapture %}{{ relative }}scripts/chkdomain.js"></script>
