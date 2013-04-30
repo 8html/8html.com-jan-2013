@@ -1350,3 +1350,19 @@ background: #c8e4f8; color: #000; border: 1px solid #94a0b4;
 .tree li a:hover+ul ul::before{
 border-color:  #94a0b4;
 }
+.leftsidevideo {
+height: 190px;
+text-align: center;
+font-size: 13px;
+margin-bottom: 15px;
+}
+.leftsidevideo a {
+font-size: 13px;
+color: #08C;
+text-decoration: none;
+}
+.leftsidevideo a:hover {
+font-size: 13px;
+color: #08C;
+text-decoration: underline;
+}
