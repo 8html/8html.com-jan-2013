@@ -1,0 +1,60 @@
+---
+layout: 8html-default
+permalink: /download/
+title: 下载网站
+---
+	<div class="pgsep clear"></div>
+	<div class="fixed_width pos_center">
+		<div class="pgls">
+			<div class="hr pghr"></div>
+			<ul class="pglsul">
+				<li><a{% if page.url == '/download/' %} class="cur"{% endif %} href="/download/">下载网站</a></li>
+			</ul>
+			<script>
+				Modernizr.cssanimations&&($(".pglsul li").addClass("pageLeftBack").css({opacity:0}).each(function(a){a=100*a+"ms";$(this).css({"-webkit-animation-delay":a,"-moz-animation-delay":a,"-o-animation-delay":a,"animation-delay":a})}),$(window).load(function(){$(".pglsul li").addClass("play")}));
+			</script>
+		</div>
+		<div class="pgrs">
+			<h1 class="pgtitle website">网站建设</h1>
+			<div class="hr"></div>
+{% capture content %}
+### 以 Ubuntu 为例
+
+** 安装 git **
+
+``sudo apt-get install git``
+
+** 下载网站 **
+
+``git clone git://github.com/caiguanhao/8html.com.git``  
+``cd 8html.com``  
+``git submodule init``  
+``git submodule update``
+
+** 安装 Ruby 之前安装 OpenSSL **
+
+``sudo apt-get install openssl``
+
+** 安装最新版 Ruby **
+    
+``wget ftp://ftp.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p0.tar.gz``  
+``tar xfvz ruby-2.0.0-p0.tar.gz``  
+``cd ruby-2.0.0-p0``  
+``./configure``  
+``make``  
+``sudo make install``
+
+** 安装 Jekyll **
+
+``sudo gem install -V jekyll ruby-nuggets rdiscount``
+
+** 最后 **
+
+在 8html.com 目录下执行 jekyll 命令即可生成网站，网站内容存放在新建的 ``_site`` 目录下，你可以直接在浏览器中打开 ``_site `` 下的 index.html ，或者配置本地服务器软件，在局域网中查看。
+{% endcapture %}
+			<div class="content">
+				{{ content | markdownify }}
+			</div>
+		</div>
+	</div>
+	<div class="pgsep clear"></div>
