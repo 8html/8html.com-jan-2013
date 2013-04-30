@@ -40,7 +40,7 @@ Generated on {{ site.time }}.{% endif %}
 <link rel="canonical" href="{{ site.url }}{{ page.url | replace:'index.html','' }}" />
 <link href="{{ relative }}css/main.css" rel="stylesheet" />
 <link href="{{ relative }}css/animation.css" rel="stylesheet" />{% for item in page.more_css %}
-<link href="{{ relative }}{{ item }}" rel="stylesheet" />{% endfor %}
+<link href="{{ item | prepend_relative:relative }}" rel="stylesheet" />{% endfor %}
 <link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-touch-icon-114.png" />
 <link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-touch-icon-114.png" />
 <link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-touch-icon-144.png" />
@@ -48,7 +48,7 @@ Generated on {{ site.time }}.{% endif %}
 <link rel="shortcut icon" href="{{ relative }}favicon.ico" type="image/x-icon" />{{ page_feeds | fixnewline }}
 <script src="{{ relative }}scripts/jquery.min.js"></script>
 <script src="{{ relative }}scripts/header.min.js"></script>{% for item in page.more_scripts %}
-<script src="{{ relative }}{{ item }}"></script>{% endfor %}
+<script src="{{ item | prepend_relative:relative }}"></script>{% endfor %}
 </head>
 
 <body>

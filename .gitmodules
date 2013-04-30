@@ -1,3 +1,6 @@
 [submodule "uploads"]
 	path = uploads
 	url = git://github.com/caiguanhao/8html.com-uploads.git
+[submodule "videos"]
+	path = videos
+	url = https://caiguanhao@bitbucket.org/caiguanhao/8html.com-videos.git
