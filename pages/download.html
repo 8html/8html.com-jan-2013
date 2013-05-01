@@ -18,7 +18,7 @@ title: 下载网站
 			<h1 class="pgtitle website">网站建设</h1>
 			<div class="hr"></div>
 {% capture content %}
-### 以 Ubuntu 为例
+### 以 Ubuntu / Debian 为例
 
 ** 安装 git **
 
@@ -31,9 +31,9 @@ title: 下载网站
 ``git submodule init``  
 ``git submodule update``
 
-** 安装 Ruby 之前安装 OpenSSL **
+** 安装需要的软件 **
 
-``sudo apt-get install openssl``
+``sudo apt-get install gcc make libssl-dev``
 
 ** 安装最新版 Ruby **
     
@@ -51,6 +51,13 @@ title: 下载网站
 ** 最后 **
 
 在 8html.com 目录下执行 jekyll 命令即可生成网站，网站内容存放在新建的 ``_site`` 目录下，你可以直接在浏览器中打开 ``_site `` 下的 index.html ，或者配置本地服务器软件，在局域网中查看。
+
+** 其他 **
+
+pygments.rb 需要 Python 2.x ，否则会出现错误。如果系统内没有 Python 请安装：
+
+``sudo apt-get install python2.6``  
+``sudo ln -s /usr/bin/python2.6 /usr/bin/python``
 {% endcapture %}
 			<div class="content">
 				{{ content | markdownify }}
