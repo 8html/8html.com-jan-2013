@@ -1,8 +1,35 @@
 # 8HTML 工作室 新网站 (2013)
 
-*Web Design by caiguanhao at 8HTML <caiguanhao@gmail.com>.*
-*Copyright (C) 2013 caiguanhao, 8HTML.com, GDKY.net and others.*
-*Powered by Jekyll, the blog-aware, static site generator in Ruby.*
+Source of the new 8HTML.com website in 2013. The generated website can be viewed locally.
+
+## 使用
+
+    git clone git://github.com/caiguanhao/8html.com.git
+    cd 8html.com
+    git submodule init
+    git submodule update
+
+注意：生成的网站默认不包含 videos 目录，如需要请修改 _config.yml 中 exclude 选项。
+
+    jekyll
+
+## 安装Jekyll
+
+    sudo apt-get install gcc make libssl-dev
+
+    wget ftp://ftp.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p0.tar.gz
+    tar xfvz ruby-2.0.0-p0.tar.gz
+    cd ruby-2.0.0-p0
+    ./configure
+    make
+    sudo make install
+
+    sudo gem install -V jekyll ruby-nuggets rdiscount
+
+pygments.rb 需要 Python 2.6 / Python 2.7 ，否则会出现错误。如果系统内没有 Python 请安装：
+
+    sudo apt-get install python2.6
+    sudo ln -s /usr/bin/python2.6 /usr/bin/python
 
 ## 文件
 
@@ -40,3 +67,9 @@
 
 1. 因为分类有中英文的转换，所以要到 /_includes/categories.html 中设置。
 2. 不同页面的标题设置要到 /_includes/titles.html 。
+
+---
+
+Web design by caiguanhao.  
+Copyright (C) 2013 caiguanhao, 8HTML.com, GDKY.net and others.  
+Powered by Jekyll, the blog-aware, static site generator in Ruby.

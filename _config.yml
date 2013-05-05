@@ -14,7 +14,7 @@ keywords: 顺德网站建设,佛山网站建设,顺德网页设计,佛山网页�
 url: http://www.8html.com
 
 # files to exclude:
-exclude: ['README.md']
+exclude: ['README.md','videos']
 
 # code highlight:
 pygments: true
