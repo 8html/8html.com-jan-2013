@@ -2,6 +2,7 @@
 layout: 8html-default
 permalink: /download/
 title: 下载网站
+more_scripts: ["scripts/jquery.easytabs.min.js"]
 ---
 	<div class="pgsep clear"></div>
 	<div class="fixed_width pos_center">
@@ -17,9 +18,14 @@ title: 下载网站
 		<div class="pgrs">
 			<h1 class="pgtitle website">网站建设</h1>
 			<div class="hr"></div>
+			<div id="tab-container" class="tab-container">
+				<ul class="etabs">
+				<li class="tab"><a href="#ubuntu_debian">Ubuntu / Debian</a></li>
+				<li class="tab"><a href="#centos_fedora">CentOS / Fedora</a></li>
+				<li class="tab"><a href="#arch_linux">Arch Linux</a></li>
+				</ul>
+				<div id="ubuntu_debian" class="content prcont">
 {% capture content %}
-### Ubuntu / Debian
-
 ** 安装 git **
 
 ``sudo apt-get install git``
@@ -58,9 +64,11 @@ pygments.rb 需要 Python 2.6 / 2.7 ，否则会出现错误。如果系统内�
 
 ``sudo apt-get install python2.6``  
 ``sudo ln -s /usr/bin/python2.6 /usr/bin/python``
-
-### CentOS
-
+{% endcapture %}
+{{ content | markdownify }}
+				</div>
+				<div id="centos_fedora" class="content prcont">
+{% capture content %}
 ** 添加 EPEL YUM 源 **
 
 *** CentOS 6: ***
@@ -96,9 +104,11 @@ pygments.rb 需要 Python 2.6 / 2.7 ，否则会出现错误。如果系统内�
 ** 安装 Jekyll **
 
 ``gem install -V jekyll ruby-nuggets rdiscount``
-
-### Arch Linux
-
+{% endcapture %}
+{{ content | markdownify }}
+				</div>
+				<div id="arch_linux" class="content prcont">
+{% capture content %}
 ** 更新 pacman **
 
 ``haveged -w 1024``  
@@ -136,9 +146,10 @@ pygments.rb 需要 Python 2.6 / 2.7 ，否则会出现错误。如果系统内�
 ``pacman -S python2``  
 ``ln -s /usr/bin/python2.7 /usr/bin/python``
 {% endcapture %}
-			<div class="content">
-				{{ content | markdownify }}
+{{ content | markdownify }}
+				</div>
 			</div>
+			<script>$('#tab-container').easytabs({animate:false, updateHash:false});</script>
 		</div>
 	</div>
 	<div class="pgsep clear"></div>
