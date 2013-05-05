@@ -96,6 +96,45 @@ pygments.rb 需要 Python 2.6 / 2.7 ，否则会出现错误。如果系统内�
 ** 安装 Jekyll **
 
 ``gem install -V jekyll ruby-nuggets rdiscount``
+
+### Arch Linux
+
+** 更新 pacman **
+
+``haveged -w 1024``  
+``pacman-key --init``  
+``pkill haveged``  
+``pacman-key --populate archlinux``  
+``pacman -Syu``
+
+** 安装 Git 并下载网站 **
+
+``pacman -S git``
+
+``git clone git://github.com/caiguanhao/8html.com.git``  
+``cd 8html.com``  
+``git submodule init``  
+``git submodule update``
+
+** 安装 Ruby **
+
+``pacman -S gcc make openssl``
+
+``curl -O ftp://ftp.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p0.tar.gz``  
+``tar xfvz ruby-2.0.0-p0.tar.gz``  
+``cd ruby-2.0.0-p0``  
+``./configure``  
+``make``  
+``make install``
+
+** 安装 Jekyll **
+
+``gem install -V jekyll ruby-nuggets rdiscount``
+
+** 安装 Python **
+
+``pacman -S python2``  
+``ln -s /usr/bin/python2.7 /usr/bin/python``
 {% endcapture %}
 			<div class="content">
 				{{ content | markdownify }}
