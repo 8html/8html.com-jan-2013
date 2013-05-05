@@ -1,0 +1,23 @@
+---
+layout: 8html-cases-wide
+permalink: /cases/webpage-making/
+more_css: http://vjs.zencdn.net/c/video-js.css
+more_scripts: http://vjs.zencdn.net/c/video.js
+title: 我们如何制作网页
+description: 首先我们用 HTML 代码编写网页的基本框架，插入 JavaScript 代码，然后利用 Google Chrome 辅助生成样式文件和调整样式，最后还要运行 IE 6 进行兼容测试。基本框架完成后，后期数据调用代码的添加和其他页面的创建工序就会比较快地完成。
+---
+		<div class="bvidcont">
+			<video id="webpage-making-video" class="video-js vjs-default-skin vidcontainer" controls preload="auto" width="960" height="540" poster="/uploads/2013/05/webpage-making.png" data-setup="{}">
+				<source src="/videos/2013/webpage-making.mp4" type="video/mp4" />
+			</video>
+			<script>
+				if (relative) {
+					$("#webpage-making-video").attr("poster", function(a,b){return to_relative(b, false);});
+					$("#webpage-making-video source").attr("src", function(a,b){return to_relative(b, false);});
+				}
+			</script>
+		</div>
+		<div class="hr"></div>
+		<div class="rcontent">
+			<p>{{ page.description }}</p>
+		</div>

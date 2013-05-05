@@ -392,6 +392,7 @@ border-color: #E5E5E5 #DBDBDB #D2D2D2;
 width: 238px;
 height: 250px;
 overflow: hidden;
+margin-bottom: 15px;
 }
 .postlist ul {
 list-style: none;
@@ -1351,7 +1352,8 @@ background: #c8e4f8; color: #000; border: 1px solid #94a0b4;
 border-color:  #94a0b4;
 }
 .leftsidevideo {
-height: 190px;
+padding-bottom: 3px;
+height: auto;
 text-align: center;
 font-size: 13px;
 margin-bottom: 15px;
@@ -1433,4 +1435,26 @@ background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAPCAYAAADph
 .vidcontainer {
 display: block;
 margin: 0 auto;
+}
+.bvidcont {
+margin: 10px;
+}
+.rightvid {
+float: right;
+margin: 0 0 10px 10px;
+text-align: center;
+font-size: 13px;
+}
+.rightvid a {
+color: #1E90FF;
+background: none;
+text-decoration: none;
+}
+.rightvid a:hover {
+color: #1E90FF;
+background: none;
+text-decoration: underline;
+}
+.rightvid img {
+margin: 0;
 }
