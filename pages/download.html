@@ -18,7 +18,7 @@ title: 下载网站
 			<h1 class="pgtitle website">网站建设</h1>
 			<div class="hr"></div>
 {% capture content %}
-### 以 Ubuntu / Debian 为例
+### Ubuntu / Debian
 
 ** 安装 git **
 
@@ -58,6 +58,44 @@ pygments.rb 需要 Python 2.6 / 2.7 ，否则会出现错误。如果系统内�
 
 ``sudo apt-get install python2.6``  
 ``sudo ln -s /usr/bin/python2.6 /usr/bin/python``
+
+### CentOS
+
+** 添加 EPEL YUM 源 **
+
+*** CentOS 6: ***
+
+``rpm -ivh http://dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm``  
+``yum makecache``
+
+*** CentOS 5: ***
+
+``rpm -ivh http://dl.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm``  
+``yum makecache``
+
+** 安装 Git 并下载网站 **
+
+``yum -y install git``
+
+``git clone git://github.com/caiguanhao/8html.com.git``  
+``cd 8html.com``  
+``git submodule init``  
+``git submodule update``
+
+** 安装 Ruby **
+
+``yum -y install gcc make openssl-devel``
+
+``wget ftp://ftp.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p0.tar.gz``  
+``tar xfvz ruby-2.0.0-p0.tar.gz``  
+``cd ruby-2.0.0-p0``  
+``./configure``  
+``make``  
+``make install``
+
+** 安装 Jekyll **
+
+``gem install -V jekyll ruby-nuggets rdiscount``
 {% endcapture %}
 			<div class="content">
 				{{ content | markdownify }}
